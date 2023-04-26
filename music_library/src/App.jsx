@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import SongDisplayTable from './Components/Song Display Table/SongDisplayTable';
-
+import AddSongEntry from './Components/Add Song Entry/AddSongEntry';
+import ImagePresenter from './Components/Image Presenter/ImagePresenter';
+import 
 
 function App() {
 
@@ -8,7 +10,9 @@ function App() {
   
   return (
     <div>
+      <ImagePresenter image {rainbow_music}
       <SongDisplayTable parentSongs={songs} />
+      <AddSongEntry addNewSongProperty={newSong} />
     </div>
   );
 }
