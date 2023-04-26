@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const addSongEntry = (props) => {
+const AddSongEntry = (props) => {
     
     const [song, makeSong] = useState('');
     const [artist, makeArtist] = useState('');
@@ -38,4 +38,4 @@ const addSongEntry = (props) => {
      );
 }
 
-export default addSongEntry;
+export default AddSongEntry;

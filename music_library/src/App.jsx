@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import SongDisplayTable from './Components/Song Display Table/SongDisplayTable';
 import AddSongEntry from './Components/Add Song Entry/AddSongEntry';
 import ImagePresenter from './Components/Image Presenter/ImagePresenter';
@@ -11,8 +10,8 @@ function App() {
 
   const [songs, setSongs] = useState([]);
   
-  useEffect(async() => {
-    getAllSongs
+  useEffect(() => {
+    getAllSongs()
   }, []);
 
   async function getAllSongs() {
@@ -21,7 +20,6 @@ function App() {
     setSongs(response.data)
   }
   
-  const [songs, setSongs] = useState([{song: '', artist: '', album: '', release_date: '', genre: '', likes: 0}])
   
   function addNewSongs(song){
     let tempSongs = [...songs, song];
