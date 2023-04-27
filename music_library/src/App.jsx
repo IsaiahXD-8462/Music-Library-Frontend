@@ -16,46 +16,65 @@ function App() {
 
   async function getAllSongs() {
     const response = await axios.get('http://127.0.0.1:8000/api/music/')
-    console.log(response.data);
-    setSongs(response.data)
+    .then(response => {
+      console.log(response.data);
+      setSongs(response.data)})
+    .catch(error => {
+      console.log(error)
+    });
   }
 
-  async function getASong() {
-    const response = await axios.put('http://127.0.0.1:8000/api/music/1').then(response) => {
-    console.log(response.data);
-    setSongs(response.data);
-    }
-  } 
+  async function getASong(pk) {
+    const response = await axios.get(`http://127.0.0.1:8000/api/music/${pk}`)
+    .then(response => {
+      console.log(response.data);
+      setSongs(response.data)})
+    .catch(error => {
+      console.log(error)
+    });
+  }
   
   async function addBrandNewSongs() {
     const response = await axios.post('http://127.0.0.1:8000/api/music/')
-    console.log(response.data);
-    setSongs(response.data)
+    .then(response => {
+      console.log(response.data);
+      setSongs(response.data)})
+    .catch(error => {
+      console.log(error)
+    });
   }
   
   async function updateWholeSong() {
-    const response = await axios.put('http://127.0.0.1:8000/api/music/1').then(response) => {
-    console.log(response.data);
-    setSongs(response.data);
-    }
+    axios.put(`http://127.0.0.1:8000/api/music/${pk}`)
+    .then(response => {
+      console.log(response.data);
+      setSongs(response.data)})
+    .catch(error => {
+      console.log(error)
+    });
   }
   
-  async function deleteSong() {
-    getASong()
-    axios.delete('http://127.0.0.1:8000/api/music/1').then(() => {
+  async function deleteSong(pk) {
+    axios.delete(`http://127.0.0.1:8000/api/music/${pk}`)
+    .then(() => {
       alert("Song deleted")
-    )};
+    .catch(error => {
+      console.log(error) 
+    });
     setSongs(null)
   }
   
-  async function updatePartSong() {
-    const response = await axios.patch('http://127.0.0.1:8000/api/music/1').then(response) => {
-    console.log(response.data);
-    setSongs(response.data);
-    }
+  async function updatePartSong(pk) {
+    axios.patch(`http://127.0.0.1:8000/api/music/${pk}`)
+    .then(response => {
+      console.log(response.data);
+      setSongs(response.data)})
+    .catch(error => {
+      console.log(error)
+    });
   }
   
-  function addNewSongs(song){
+  async function addNewSongs(song){
     let tempSongs = [...songs, song];
 
     setSongs(tempSongs);
@@ -70,6 +89,6 @@ function App() {
       <button onClick={() => getAllSongs()}>Get All Songs</button>
     </div>
   );
-}
+}}
 
 export default App;
