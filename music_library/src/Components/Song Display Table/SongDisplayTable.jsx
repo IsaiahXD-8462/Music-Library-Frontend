@@ -1,4 +1,3 @@
-import App from "../../App";
 
 const SongDisplayTable = (props) => {
     return ( 
@@ -25,9 +24,9 @@ const SongDisplayTable = (props) => {
                     <td>{entry.release_date}</td>
                     <td>{entry.genre}</td>
                     <td>{entry.likes}</td>
-                    <td><button onClick={() => updatePartSong()}>Like</button></td>
-                    <td><button onClick={() => updateWholeSong()}>Edit</button></td>
-                    <td><button onClick={() => deleteSong()}>Delete</button></td>
+                    <td><button onClick={() => props.updatePartSong()}>Like</button></td>
+                    <td><button onClick={() => props.updateWholeSong()}>Edit</button></td>
+                    <td><button onClick={() => props.deleteSong()}>Delete</button></td>
                 </tr>
             );
           })}

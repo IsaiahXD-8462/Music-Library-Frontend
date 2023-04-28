@@ -15,7 +15,7 @@ function App() {
   }, []);
 
   async function getAllSongs() {
-    const response = await axios.get('http://127.0.0.1:8000/api/music/')
+    axios.get('http://127.0.0.1:8000/api/music/')
     .then(response => {
       console.log(response.data);
       setSongs(response.data)})
@@ -25,7 +25,7 @@ function App() {
   }
 
   async function getASong(pk) {
-    const response = await axios.get(`http://127.0.0.1:8000/api/music/${pk}`)
+    axios.get(`http://127.0.0.1:8000/api/music/${pk}`)
     .then(response => {
       console.log(response.data);
       setSongs(response.data)})
@@ -35,7 +35,7 @@ function App() {
   }
   
   async function addBrandNewSongs() {
-    const response = await axios.post('http://127.0.0.1:8000/api/music/')
+    axios.post('http://127.0.0.1:8000/api/music/')
     .then(response => {
       console.log(response.data);
       setSongs(response.data)})
@@ -44,7 +44,7 @@ function App() {
     });
   }
   
-  async function updateWholeSong() {
+  async function updateWholeSong(pk) {
     axios.put(`http://127.0.0.1:8000/api/music/${pk}`)
     .then(response => {
       console.log(response.data);
@@ -74,7 +74,7 @@ function App() {
     });
   }
   
-  async function addNewSongs(song){
+  function addNewSongs(song){
     let tempSongs = [...songs, song];
 
     setSongs(tempSongs);
